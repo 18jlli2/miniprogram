@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/news/news",
+    "pages/index/taskDetail/taskDetail",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Todolist",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

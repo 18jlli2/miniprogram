@@ -1,0 +1,27 @@
+<view class="container">
+  
+  <!-- 根据任务数判断展示哪段代码块 -->
+  <block wx:if="{{ todos.length }}">
+    <view class="todos">
+      <!--列表展示所有任务 -->
+      <view class="item{{ item.completed ? ' completed' : '' }}" wx:for="{{ todos }}" wx:key="{{ index }}">
+        <!-- 任务状态根据item项是否completed: success, todo: circle，根据状态定义icon type -->
+        <icon bindtap="toggleTodoHandle" data-index="{{ index }}" class="checkbox" type="{{ item.completed ? 'success' : 'circle' }}"/>
+        <text class="name">{{ item.name }}</text>
+        <botton  class="contains" size="mini"  type="primary"  bindtap="detail" id="{{index }}" >详情</botton>
+        <icon class="remove" type="clear" size="16" catchtap="removeTodoHandle" data-index="{{ index }}"/>
+      </view>
+    </view>
+    <view class="footer">
+      <text class="btn" bindtap="toggleAllHandle">完成所有</text>
+      <text wx:if="{{ leftCount }}">{{ leftCount }} {{ leftCount === 1 ? '个任务' : '个任务' }}剩余</text>
+      <text class="btn" wx:if="{{ todos.length > leftCount }}" bindtap="clearCompletedHandle">删除已完成任务</text>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="empty">
+      <text class="title">没有任务</text>
+    </view>
+  </block>
+  <image class="addtask"  bindtap="add"src="assets/plus.png" ></image>
+</view>
